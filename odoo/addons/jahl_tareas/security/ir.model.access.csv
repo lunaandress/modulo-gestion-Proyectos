@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_usuario_user,jahl_tareas.usuario_user,model_jahl_tareas_usuario,base.group_user,1,1,0,0
+access_usuario_admin,jahl_tareas.usuario_admin,model_jahl_tareas_usuario,base.group_erp_manager,1,1,1,1
+
+access_proyecto_user,jahl_tareas.proyecto_user,model_jahl_tareas_proyecto,base.group_user,1,1,0,0
+access_proyecto_admin,jahl_tareas.proyecto_admin,model_jahl_tareas_proyecto,base.group_erp_manager,1,1,1,1
+
+access_tarea_user,jahl_tareas.tarea_user,model_jahl_tareas_tarea,base.group_user,1,1,0,0
+access_tarea_admin,jahl_tareas.tarea_admin,model_jahl_tareas_tarea,base.group_erp_manager,1,1,1,1
+
+access_etiqueta_user,jahl_tareas.etiqueta_user,model_jahl_tareas_etiqueta,base.group_user,1,1,0,0
+access_etiqueta_admin,jahl_tareas.etiqueta_admin,model_jahl_tareas_etiqueta,base.group_erp_manager,1,1,1,1

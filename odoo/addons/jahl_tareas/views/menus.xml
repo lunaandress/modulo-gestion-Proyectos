@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Acción para el menú de "Proyectos" -->
+        <record id="jahl_tareas.proyecto_action" model="ir.actions.act_window">
+            <field name="name">Proyectos</field>
+            <field name="res_model">jahl_tareas.proyecto</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para el menú de "Tareas" -->
+        <record id="jahl_tareas.tarea_action" model="ir.actions.act_window">
+            <field name="name">Tareas</field>
+            <field name="res_model">jahl_tareas.tarea</field>
+            <field name="view_mode">kanban,tree,form</field>
+        </record>
+
+        <!-- Acción para visualizar Usuarios -->
+        <record id="jahl_tareas.usuario" model="ir.actions.act_window">
+            <field name="name">Usuarios</field>
+            <field name="res_model">jahl_tareas.usuario</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para abrir Etiquetas -->
+        <record id="jahl_tareas_etiqueta_action" model="ir.actions.act_window">
+            <field name="name">Etiquetas</field>
+            <field name="res_model">jahl_tareas.etiqueta</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!-- Menú principal de "Gestión de Proyectos" -->
+        <menuitem
+            id="jahl_tareas.menu_root"
+            name="Gestión de Proyectos"
+            sequence="10"/>
+
+        <!-- Submenú de Etiquetas -->
+        <menuitem
+            id="jahl_tareas.etiqueta_menu"
+            name="Etiquetas"
+            action="jahl_tareas_etiqueta_action"
+            parent="jahl_tareas.menu_root"
+            sequence="30"/>
+
+        <!-- Submenú de "Proyectos" -->
+        <menuitem
+            id="jahl_tareas.proyecto_menu"
+            name="Proyectos"
+            action="jahl_tareas.proyecto_action"
+            parent="jahl_tareas.menu_root"
+            sequence="10"/>
+
+        <!-- Submenú de "Tareas" -->
+        <menuitem
+            id="jahl_tareas.tarea_menu"
+            name="Tareas"
+            action="jahl_tareas.tarea_action"
+            parent="jahl_tareas.menu_root"
+            sequence="20"/>
+
+        <!-- Menú de Usuarios -->
+        <menuitem
+            id="jahl_tareas.menu_usuario"
+            name="Usuarios"
+            parent="jahl_tareas.menu_root"
+            action="jahl_tareas.usuario"/>
+    </data>
+</odoo>

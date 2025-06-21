@@ -1,0 +1,59 @@
+<odoo>
+    <!-- Vista Tree de Proyectos -->
+    <record id="view_proyecto_tree" model="ir.ui.view">
+        <field name="name">jahl_tareas.proyecto.tree</field>
+        <field name="model">jahl_tareas.proyecto</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="usuario_ids"/>
+                <field name="tarea_ids"/>
+                <field name="descripcion"/>
+            </tree>
+        </field>
+    </record>
+
+<!-- Vista Form de Proyectos -->
+<record id="view_proyecto_form" model="ir.ui.view">
+    <field name="name">jahl_tareas.proyecto.form</field>
+    <field name="model">jahl_tareas.proyecto</field>
+    <field name="arch" type="xml">
+        <form>
+            <sheet>
+                <group>
+                    <field name="nombre"/>
+                </group>
+                
+            <!-- Lista de usuarios asignados al proyecto -->
+            <group string="Usuarios Asignados">
+                <field name="usuario_ids" >
+                    <tree>
+                        <field name="nombre"/>
+                        <field name="email"/>
+                        <field name="imagen" widget="image" options="{'size': [30, 30]}"/>
+                        </tree>
+                </field>
+            </group>
+
+            <!-- Lista de tareas asociadas al proyecto -->
+            <group string="Tareas del Proyecto">
+                <field name="tarea_ids">
+                    <tree>
+                        <field name="nombre"/>
+                        <field name="estado"/>
+                        <field name="usuario_asignado"/>
+                        <field name="fecha_fin"/>
+                        <field name="prioridad"/>
+                    </tree>
+                </field>
+            </group>
+
+                <!-- Imagen del proyecto -->
+                <group>
+                    <field name="imagen" widget="image" options="{'preview_image': 'imagen'}"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+</odoo>

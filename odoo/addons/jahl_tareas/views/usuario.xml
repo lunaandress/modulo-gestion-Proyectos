@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Vista Tree de Usuarios -->
+    <record id="jahl_tareas.usuario_tree" model="ir.ui.view">
+        <field name="name">jahl_tareas.usuario.tree</field>
+        <field name="model">jahl_tareas.usuario</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="email"/>
+                <field name="imagen"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Form de Usuarios -->
+    <record id="jahl_tareas.usuario_form" model="ir.ui.view">
+        <field name="name">jahl_tareas.usuario.form</field>
+        <field name="model">jahl_tareas.usuario</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="email"/>
+                        <field name="imagen" widget="image"/>
+                    </group>
+
+    <!-- Lista de Tareas Asignadas -->
+                    <group string="Lista de Tareas Asignadas">
+                        <field name="tarea_ids">
+                            <tree>
+                                <field name="nombre"/>
+                                <field name="estado"/>
+                                <field name="fecha_fin"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+        </record>
+</odoo>

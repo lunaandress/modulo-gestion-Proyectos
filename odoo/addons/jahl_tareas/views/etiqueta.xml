@@ -1,0 +1,43 @@
+<odoo>
+    <!-- Vista Tree de Etiquetas -->
+    <record id="jahl_tareas_etiqueta_tree" model="ir.ui.view">
+        <field name="name">jahl_tareas.etiqueta.tree</field>
+        <field name="model">jahl_tareas.etiqueta</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="nombre"/>
+                <field name="color"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista Form de Etiquetas -->
+    <record id="jahl_tareas_etiqueta_form" model="ir.ui.view">
+        <field name="name">jahl_tareas.etiqueta.form</field>
+        <field name="model">jahl_tareas.etiqueta</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="nombre"/>
+                        <field name="color"/><!-- Selector de color -->
+                    </group>
+
+                    <!-- Lista de tareas asociadas -->
+                    <group string="Tareas asociadas">
+                        <field name="tarea_ids">
+                            <tree>
+                                <field name="nombre"/>
+                                <field name="estado"/>
+                                <field name="usuario_asignado"/>
+                                <field name="fecha_fin"/>
+                                <field name="prioridad"/>
+                            </tree>
+                        </field>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

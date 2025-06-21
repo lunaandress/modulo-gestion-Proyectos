@@ -1,0 +1,138 @@
+<odoo>
+<data noupdate="1">
+
+<!-- Usuarios con imagen -->
+        <record id="demo_usuario_1" model="jahl_tareas.usuario">
+            <field name="nombre">María González</field>
+            <field name="email">maria@example.com</field>
+            <field name="imagen" type="base64" file="jahl_tareas/static/img/maria.jpg"/>
+        </record>
+
+        <record id="demo_usuario_2" model="jahl_tareas.usuario">
+            <field name="nombre">Luis Pérez</field>
+            <field name="email">luis@example.com</field>
+            <field name="imagen" type="base64" file="jahl_tareas/static/img/luis.jpg"/>
+        </record>
+
+        <record id="demo_usuario_3" model="jahl_tareas.usuario">
+            <field name="nombre">Laura Martínez</field>
+            <field name="email">laura@example.com</field>
+            <field name="imagen" type="base64" file="jahl_tareas/static/img/laura.jpg"/>
+        </record>
+
+        <record id="demo_usuario_4" model="jahl_tareas.usuario">
+            <field name="nombre">Carlos Rodríguez</field>
+            <field name="email">carlos@example.com</field>
+            <field name="imagen" type="base64" file="jahl_tareas/static/img/carlos.jpg"/>
+        </record>
+
+        <record id="demo_usuario_5" model="jahl_tareas.usuario">
+            <field name="nombre">Ana López</field>
+            <field name="email">ana@example.com</field>
+            <field name="imagen" type="base64" file="jahl_tareas/static/img/ana.jpg"/>
+        </record>
+
+    <!-- Proyectos con imagen -->
+    <record id="demo_proyecto_1" model="jahl_tareas.proyecto">
+        <field name="nombre">Proyecto Alpha</field>
+        <field name="imagen" type="base64" file="jahl_tareas/static/img/A.png"/>
+        <field name="descripcion">Primer proyecto de ejemplo</field>
+        <field name="usuario_ids" eval="[(4, ref('demo_usuario_1')), (4, ref('demo_usuario_2'))]"/>
+    </record>
+    <record id="demo_proyecto_2" model="jahl_tareas.proyecto">
+        <field name="nombre">Proyecto Beta</field>
+        <field name="imagen" type="base64" file="jahl_tareas/static/img/B.png"/>
+        <field name="descripcion">Segundo proyecto de ejemplo</field>
+        <field name="usuario_ids" eval="[(4, ref('demo_usuario_3')), (4, ref('demo_usuario_4'))]"/>
+    </record>
+    <record id="demo_proyecto_3" model="jahl_tareas.proyecto">
+        <field name="nombre">Proyecto Gamma</field>
+        <field name="imagen" type="base64" file="jahl_tareas/static/img/G.png"/>
+        <field name="descripcion">Tercer proyecto de ejemplo</field>
+        <field name="usuario_ids" eval="[(4, ref('demo_usuario_5'))]"/>
+    </record>
+    <record id="demo_proyecto_4" model="jahl_tareas.proyecto">
+        <field name="nombre">Proyecto Delta</field>
+        <field name="imagen" type="base64" file="jahl_tareas/static/img/D.png"/>
+        <field name="descripcion">Cuarto proyecto con tareas varias</field>
+    </record>
+    <record id="demo_proyecto_5" model="jahl_tareas.proyecto">
+        <field name="nombre">Proyecto Omega</field>
+        <field name="imagen" type="base64" file="jahl_tareas/static/img/O.png"/>
+        <field name="descripcion">Último proyecto demo</field>
+    </record>
+
+    <!-- Etiquetas para Tareas -->
+    <record id="demo_etiqueta_1" model="jahl_tareas.etiqueta">
+        <field name="nombre">Urgente</field>
+        <field name="color">3</field> <!-- Color ID 3 (generalmente rojo o un color de advertencia) -->
+    </record>
+
+    <record id="demo_etiqueta_2" model="jahl_tareas.etiqueta">
+        <field name="nombre">Importante</field>
+        <field name="color">2</field> <!-- Color ID 2 (generalmente amarillo o color asociado a importancia) -->
+    </record>
+
+    <record id="demo_etiqueta_3" model="jahl_tareas.etiqueta">
+        <field name="nombre">Completado</field>
+        <field name="color">10</field> <!-- Color ID 10 (verde generalmente, para tareas completadas) -->
+    </record>
+
+<!-- Registros de demostración de Tareas -->
+<!-- Tareas con etiquetas -->
+<record id="demo_tarea_1" model="jahl_tareas.tarea">
+    <field name="nombre">Diseñar interfaz</field>
+    <field name="descripcion">Diseñar la UI del módulo</field>
+    <field name="estado">to_do</field>
+    <field name="prioridad">2</field>
+    <field name="proyecto_id" ref="demo_proyecto_1"/>
+    <field name="usuario_asignado" ref="demo_usuario_1"/>
+    <field name="fecha_fin">2025-06-30</field>
+    <field name="etiqueta_ids" eval="[(4, ref('demo_etiqueta_1'))]"/> <!-- Etiqueta 'Urgente' -->
+</record>
+
+<record id="demo_tarea_2" model="jahl_tareas.tarea">
+    <field name="nombre">Crear base de datos</field>
+    <field name="descripcion">Definir modelos y relaciones</field>
+    <field name="estado">in_progress</field>
+    <field name="prioridad">1</field>
+    <field name="proyecto_id" ref="demo_proyecto_1"/>
+    <field name="usuario_asignado" ref="demo_usuario_2"/>
+    <field name="fecha_fin">2025-07-15</field>
+    <field name="etiqueta_ids" eval="[(4, ref('demo_etiqueta_2'))]"/> <!-- Etiqueta 'Importante' -->
+</record>
+
+<record id="demo_tarea_3" model="jahl_tareas.tarea">
+    <field name="nombre">Pruebas funcionales</field>
+    <field name="descripcion">Probar flujos básicos</field>
+    <field name="estado">testing</field>
+    <field name="prioridad">1</field>
+    <field name="proyecto_id" ref="demo_proyecto_2"/>
+    <field name="usuario_asignado" ref="demo_usuario_3"/>
+    <field name="fecha_fin">2025-07-10</field>
+    <field name="etiqueta_ids" eval="[(4, ref('demo_etiqueta_3'))]"/> <!-- Etiqueta 'Completado' -->
+</record>
+
+<record id="demo_tarea_4" model="jahl_tareas.tarea">
+    <field name="nombre">Documentar código</field>
+    <field name="descripcion">Añadir docstrings y comentarios</field>
+    <field name="estado">done</field>
+    <field name="prioridad">0</field>
+    <field name="proyecto_id" ref="demo_proyecto_3"/>
+    <field name="usuario_asignado" ref="demo_usuario_5"/>
+    <field name="fecha_fin">2025-05-31</field>
+    <field name="etiqueta_ids" eval="[(4, ref('demo_etiqueta_1'))]"/> <!-- Etiqueta 'Urgente' (única) -->
+</record>
+
+<record id="demo_tarea_5" model="jahl_tareas.tarea">
+    <field name="nombre">Revisión final</field>
+    <field name="descripcion">Verificar todo antes de entrega</field>
+    <field name="estado">backlog</field>
+    <field name="prioridad">2</field>
+    <field name="proyecto_id" ref="demo_proyecto_5"/>
+    <field name="usuario_asignado" ref="demo_usuario_4"/>
+    <field name="fecha_fin">2025-08-01</field>
+    <field name="etiqueta_ids" eval="[(4, ref('demo_etiqueta_3'))]"/> <!-- Etiqueta 'Completado' (única) -->
+</record>
+</data>
+</odoo>
